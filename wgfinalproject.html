@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="utf-8" />
+            
+            	<!--import favicon -->
+                
+                <!--import CSS -->
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">	
+				<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+				  <!--esri leaflet -->
+			<!--	<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.0.5/dist/MarkerCluster.css"/>-->
+                
+                <!-- connect your html file to an external JavaScript -->
+                <link rel="stylesheet" type="text/css" href="css/wgfinalproject.css" />
+                
+                
+                
+                <!--import font -->
+                <link href="https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister" rel="stylesheet">
+                
+                <!--import JavaScript-->
+				<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+				<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+				<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+				  <!--esri leaflet -->
+				<!--<script src="https://unpkg.com/leaflet.markercluster@1.0.5/dist/leaflet.markercluster.js"></script>	-->
+                
+                <!-- connect your html file to an external JavaScript -->
+                <script type="text/javascript" src="js/wgfinalproject.js"></script>
+				 <script type="text/javascript" src="js/us_states_geojson.js"></script>
+                
+                <title> Charging map </title>
+            
+        </head>
+        <body>
+            <div class="container-fluid">
+			
+				<div class="row">
+					
+						<br />
+		
+				</div><!-- Row 1 -->
+				
+				<div class="row">	
+						<nav class="col-lg-10 col-lg-offset-1 navbar navbar-default" role="navigation">
+								
+								<a class="navbar-brand" href="#"><b>ELectric Vehicle Charging Stations</b></a>
+								
+								<ul class="nav navbar-nav pull-right">
+									<!--	<li id="anInfo" class="active"><a href="#">Info</a></li>-->
+										<li id="aStation"><a href="#"><b>All ev charging stations</b></a></li>
+										<li id="aLocation"><a href="#"><b>Nearest ev charging stations</b></a></li>
+									<!--	<li id="aRoute"><a href="#">Route</a></li>-->
+								</ul>
+										
+						</nav>
+				</div><!-- Row 2 -->
+				
+				<div class="row">
+						<div id="myMap1" class="col-lg-10 col-lg-offset-1">
+			
+						</div>
+				</div><!-- Row 3 -->
+				
+				<div class="row">
+							<br />	
+						<div id="myDropdown" class="col-lg-4 col-lg-offset-1 " >
+                                        <!--  selected disabled will make a placeholder of text and add it to the options but as an unselectable option-->
+                                        <!--   selected disabled hidden will make a placeholder of text but won't add it to the options-->
+									<!--	selecting state:-->
+										<p id="text"><b> Select your state and preferred ev station, and then click on "All ev charging stations" : </b></p>
+										<select id="iconList1" class="form-control" >
+										 <option  selected disabled >Select your state:</option>
+										 <option id = "CA" value="AL">Alabama</option>
+										 <option value="AZ">ARIZONA	</option>
+										 <option value="AR">ARKANSAS</option>
+										 <option value="CA">CALIFORNIA</option>
+										 <option value="CO">COLORADO</option>
+										 <option value="CT">CONNECTICUT</option>
+										 <option value="DE">DELAWARE</option>
+										 <option value="FL">FLORIDA</option>
+										 <option value="GA">GEORGIA</option>
+										 <option value="HI">HAWAII</option>
+										 <option value="ID">IDAHO</option>
+										 <option value="IL">ILLINOIS</option>
+										 <option value="IN">INDIANA</option>
+										 <option value="IA">IOWA</option>
+										 <option value="KS">KANSAS</option>
+										 <option value="KY">KENTUCKY</option>
+										 <option value="LA">LOUISIANA</option>
+										 <option value="ME">MAINE</option>
+										 <option value="MD">MARYLAND</option>
+										 <option value="MA">MASSACHUSETTS</option>
+										 <option value="MI">MICHIGAN	</option>
+										 <option value="MN">MINNESOTA</option>
+										 <option value="MS">MISSISSIPPI</option>
+										 <option value="MO">MISSOURI</option>
+										 <option value="MT">MONTANA</option>
+										 <option value="NE">NEBRASKA</option>
+										 <option value="NV">NEVADA</option>
+										 <option value="NH">NEW HAMPSHIRE</option>
+										 <option value="NJ">NEW JERSEY</option>
+										 <option value="NM">NEW MEXICO</option>
+										 
+										 <option value="NY">NEW YORK</option>
+										 <option value="NC">NORTH CAROLINA</option>
+										 <option value="ND">NORTH DAKOTA</option>
+										 <option value="OH">OHIO</option>
+										 <option value="OK">OKLAHOMA</option>
+										 <option value="OR">OREGON</option>
+										 <option value="PA">PENNSYLVANIA</option>
+										 <option value="RI">RHODE ISLAND</option>
+										 <option value="SC">SOUTH CAROLINA</option>
+										 <option value="SD">SOUTH DAKOTA</option>
+										 <option value="TN">TENNESSEE</option>
+										 <option value="TX">TEXAS</option>
+										 <option value="UT">UTAH</option>
+										 <option value="VT">VERMONT</option>
+										 <option value="VA">VIRGINIA</option>
+										 <option value="WA">WASHINGTON</option>
+										 <option value="WV">WEST VIRGINIA</option>
+										 <option value="CA">WISCONSIN</option>
+										 <option value="WI">New York</option>
+										 <option value="WY">WYOMING</option>
+										</select>
+										
+										<br />
+									<!--	 selecting ev_network-->
+										<select id="iconList2" class="form-control" >
+										 <option  selected disabled >Select your ev network:</option>
+										 <option  id = "all" value="all">All</option>
+										 <option id = "AeroVironmentNetwork" value="AeroVironment Network">AeroVironment Network</option>
+										  <option id = "BlinkNetwork" value="Blink Network">Blink Network</option>
+										  <option id = "ChargePointNetwork" value="ChargePoint Network">ChargePoint Network</option>
+										  <option id = "EVConnect" value="EV Connect">EV Connect</option>
+										  <option id = "eVgoNetwork" value="eVgo Network">eVgo Network</option>
+										  <option id = "GEWattStation" value="GE WattStation">GE WattStation</option>
+										  <option id = "Greenlots" value="Greenlots">Greenlots</option>
+										  <option id = "OpConnect" value="OpConnect">OpConnect</option>
+										<option id = "SemaChargeNetwork" value="SemaCharge Network">SemaCharge Network</option>
+										<option id = "Tesla" value="Tesla">Tesla</option>
+										
+										</select>
+										
+										<br />										
+									<!--	 selecting ev_charging_level-->
+										<select id="iconList3" class="form-control" >
+										 <option  selected disabled >Select your ev charging level:</option>
+										 <option id = "all" value="all">	Include all charging levels</option>
+										 <option value="1">	Level 1 EVSE (standard 110V outlet)</option>
+										 <option value="2">	Level 2 EVSE (J1772 connector)</option>
+										 <option value="dc_fast">DC Fast Charging</option>
+										 <option value="legacy">Legacy charging systems (such as inductive paddles)</option>
+										</select>
+										
+												
+										<br />										
+									<!--	 selecting ev_connector_type-->
+										<select id="iconList4" class="form-control" >
+										 <option  selected disabled >Select your ev connector type:</option>
+										 <option id = "CA" value="all">All</option>
+										 <option value="NEMA515">NEMA 5-15 (Level 1)</option>
+										 <option value="NEMA520">NEMA 5-20 (Level 1)</option>
+										 <option value="NEMA1450">NEMA 14-50 (Level 1)</option>
+										 <option value="J1772">J1772 (Level 2)</option>
+										 <option value="CHADEMO">CHAdeMO (DC fast charging)</option>
+										 <option value="J1772COMBO">SAE J1772 Combo (DC fast charging)</option>
+										 <option value="TESLA">Tesla(DC fast charging and Level 2)</option>
+										</select>
+										
+										
+											
+<!--										<form id="form">
+												Latitude:<br>
+												<input id= "lat" ><br>
+												Longitude:<br>
+												<input id= "lng" ><br>
+												Radius:<br>
+												<input id= "Rd" type="number" min="5" max="500" >
+												
+										</form>-->
+										
+										
+										
+										
+									
+						</div>
+					  <!--  <div id="myMap2" class="col-lg-5 col-lg-offset-1">
+			
+					    </div>-->
+	<!--				 	<div id="myMap3" class="col-lg-4 col-lg-offset-2">
+			
+						</div>-->
+		               <div id="myInfo" class="col-lg-5 col-lg-offset-1">
+						
+					 	                <p id="text"><b> Enter your location and click on "Nearest ev charging stations" :  </b></p>
+					 					<form id="form">
+												Latitude:<br>
+												<input id= "lat" >
+												<br>
+												<br>
+												Longitude:<br>
+												<input id= "lng" >
+												<br>
+												<br>
+												Radius:<br>
+												<input id= "Rd" type="number" min="5" max="500"> 
+												
+												
+										</form>
+				<!--		<div id="myMap2" >
+			
+						</div>-->				
+										
+							
+					   </div>
+	
+				</div><!-- Row 4 -->
+
+		</div>
+            
+        </body>
+    </html>
